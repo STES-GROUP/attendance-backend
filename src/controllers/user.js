@@ -106,45 +106,6 @@ class Authentication {
       throw err;
     }
   }
-
-  /**
-   * @description admins delete a user
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} success message
-   */
-  static async deleteUser(req, res) {
-    try {
-      const studentId = req.params.userstudentId;
-      const userRole = req.userData.role;
-      const user = await User.findOne({ where: { studentId: studentId } });
-      if (!user) {
-        return res.status(404).json({
-          error: `User with student Id ${studentId} not found`,
-        });
-      }
-      if (
-        userRole === "user" ||
-        user.role === "super-admin" ||
-        (userRole === "admin" && user.role === "admin")
-      ) {
-        return res.status(403).json({
-          error: "You do not have permission to perform this action",
-        });
-      }
-
-      await User.destroy({
-        where: {
-          studentId: studentId,
-        },
-      });
-      return res.status(200).json({
-        message: `User ${studentId} successfully deleted`,
-      });
-    } catch (err) {
-      throw err;
-    }
-  }
 }
 
 export default Authentication;

@@ -2,7 +2,7 @@ import express from "express";
 import passport from "passport";
 import session from "express-session";
 import morgan from "morgan";
-import db from "./models/User";
+import db from "./models/Card";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
 import router from "./routes/userRoute";
