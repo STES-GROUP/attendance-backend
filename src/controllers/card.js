@@ -54,7 +54,7 @@ class Cards {
       if (!cards) {
         return res.status(404).json({
           status: 404,
-          error: "No cars found",
+          error: "No cards found",
         });
       }
       return res.status(200).json({

@@ -1,20 +1,27 @@
 import DataTypes from "sequelize";
 import sequel from "../database/database";
-import Entry from "./Entry";
 
-const Card = sequel.sequelize.define(
-  "card",
+const Entry = sequel.sequelize.define(
+  "entry",
   {
     id: {
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-    },
-    cardId: {
-      type: DataTypes.STRING,
       primaryKey: true,
     },
-
+    studentId: {
+      allowNull: true,
+      type: DataTypes.INTEGER,
+    },
+    name: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    cardId: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
     createdAt: {
       allowNull: true,
       type: DataTypes.DATE,
@@ -29,9 +36,7 @@ const Card = sequel.sequelize.define(
   }
 );
 
-Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });
+Entry.sync();
+console.log("The table for the Entry model was just (re)created!");
 
-Card.sync();
-console.log("The table for the Card model was just (re)created!");
-
-export default Card;
+export default Entry;

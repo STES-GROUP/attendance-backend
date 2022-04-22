@@ -1,5 +1,6 @@
 import DataTypes from "sequelize";
 import sequel from "../database/database";
+import Class from "./Class";
 
 const User = sequel.sequelize.define(
   "user",

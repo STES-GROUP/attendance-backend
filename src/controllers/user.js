@@ -29,6 +29,7 @@ class Authentication {
         phone_number,
         department,
         email,
+        password,
         role,
       } = req.body;
 
@@ -38,12 +39,12 @@ class Authentication {
           error: `Email ${email} already exists`,
         });
       }
-      const password = generator.generate({
-        length: 10,
-        numbers: true,
-      });
-      console.log(password);
-      const hash = await bcrypt.hash(password, 10);
+      // const password = generator.generate({
+      //   length: 10,
+      //   numbers: true,
+      // });
+      // console.log(password);
+      const hash = await bcrypt.hash(password, 8);
       const userData = await User.create({
         id: uuidv4(),
         cardId,

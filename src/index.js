@@ -2,19 +2,21 @@ import express from "express";
 import passport from "passport";
 import session from "express-session";
 import morgan from "morgan";
-import db from "./models/Card";
+import db from "./models/Class";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
 import router from "./routes/userRoute";
+import cors from "cors";
 
 config();
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 app.use(passport.initialize());
 

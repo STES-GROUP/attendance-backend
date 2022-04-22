@@ -1,18 +1,18 @@
 import DataTypes from "sequelize";
 import sequel from "../database/database";
-import Entry from "./Entry";
+import User from "./User";
 
-const Card = sequel.sequelize.define(
-  "card",
+const Class = sequel.sequelize.define(
+  "class",
   {
     id: {
       allowNull: false,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-    },
-    cardId: {
-      type: DataTypes.STRING,
       primaryKey: true,
+    },
+    ClassIdentifier: {
+      type: DataTypes.STRING,
     },
 
     createdAt: {
@@ -29,9 +29,9 @@ const Card = sequel.sequelize.define(
   }
 );
 
-Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });
+Class.belongsTo(User, { foreignKey: "studentId", onDelete: "CASCADE" });
 
-Card.sync();
-console.log("The table for the Card model was just (re)created!");
+Class.sync();
+console.log("The table for the Class model was just (re)created!");
 
-export default Card;
+export default Class;
