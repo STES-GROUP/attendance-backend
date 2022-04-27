@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 import bcrypt from "bcrypt";
 
-import generator from "generate-password";
+// import generator from "generate-password";
 import { v4 as uuidv4 } from "uuid";
 import User from "../models/User";
 import { encode } from "../helpers/auth";
@@ -24,8 +24,8 @@ class Authentication {
       const {
         cardId,
         studentId,
-        firststudentId,
-        laststudentId,
+        firstName,
+        lastName,
         phone_number,
         department,
         email,
@@ -49,8 +49,8 @@ class Authentication {
         id: uuidv4(),
         cardId,
         studentId,
-        firststudentId,
-        laststudentId,
+        firstName,
+        lastName,
         phone_number,
         department,
         email,

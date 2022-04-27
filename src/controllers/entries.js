@@ -213,46 +213,12 @@ class EntryController {
               return res.status(200).json({
                 status: 200,
                 message: "successfull retrieve all entries",
-                data,
+                data: data,
               });
             }
           });
 
-          // .then((read) => {
-          //   if (read) {
-          //     const createAtData = read.map((item) => {
-          //       return item.get("createdAt");
-          //     });
-          //     Entry.findAll({
-          //       where: {
-          //         createdAt: createAtData,
-          //       },
-          //     }).then((read) => {
-          //       if (read) {
-          //         const data = read.map((item) => {
-          //           return {
-          //             id: item.id,
-          //             cardId: item.cardId,
-          //             studentId: item.studentId,
-          //             createdAt: item.createdAt,
-          //           };
-          //         });
-          //         if (!data) {
-          //           return res.status(404).json({
-          //             status: 404,
-          //             error: "Data not found",
-          //           });
-          //         }
-
-          //         return res.status(200).json({
-          //           status: 200,
-          //           message: "successfull retrieve all entries",
-          //           data,
-          //         });
-          //       }
-          //     });
-          //   }
-          // });
+      
         }
       });
     } catch (err) {
