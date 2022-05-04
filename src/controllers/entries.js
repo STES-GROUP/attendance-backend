@@ -1,9 +1,9 @@
-import Entry from "../models/Entry";
-import Card from "../models/Card";
-import User from "../models/User";
+import Entry from "../models/Entry.js";
+import Card from "../models/Card.js";
+import User from "../models/User.js";
 import { Sequelize } from "sequelize";
-import Access from "../models/Access";
-import Class from "../models/Class";
+import Access from "../models/Access.js";
+import Class from "../models/Class.js";
 import { v4 as uuidv4 } from "uuid";
 
 /**
@@ -88,11 +88,13 @@ class EntryController {
             where: {
               cardId,
             },
+        
           }).then((readUser) => {
             if (readUser) {
               const selectedUser = {
                 cardId: readUser.cardId,
                 studentId: readUser.studentId,
+               
               };
 
               Entry.create(selectedUser);
@@ -191,7 +193,7 @@ class EntryController {
           Entry.findAll({
             where: {
               studentId: data,
-            },
+            },  
           }).then((read) => {
             if (read) {
               const data = read.map((item) => {
@@ -213,7 +215,7 @@ class EntryController {
               return res.status(200).json({
                 status: 200,
                 message: "successfull retrieve all entries",
-                data: data,
+                data: data, 
               });
             }
           });
