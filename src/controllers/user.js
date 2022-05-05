@@ -3,8 +3,8 @@ import bcrypt from "bcrypt";
 
 // import generator from "generate-password";
 import { v4 as uuidv4 } from "uuid";
-import User from "../models/User";
-import { encode } from "../helpers/auth";
+import User from "../models/User.js";
+import { encode } from "../helpers/auth.js";
 config();
 
 /**
@@ -31,6 +31,15 @@ class Authentication {
         email,
         password,
         role,
+        postName,
+        gender,
+        birthDate,
+        birthPlace,
+        mother,
+        father,
+        faculty,
+        option,
+        promotion
       } = req.body;
 
       const userFound = await User.findOne({ where: { email } });
@@ -56,6 +65,15 @@ class Authentication {
         email,
         password: hash,
         role,
+        postName,
+        gender,
+        birthDate,
+        birthPlace,
+        mother,
+        father,
+        faculty,
+        option,
+        promotion
       });
 
       return res.status(201).json({

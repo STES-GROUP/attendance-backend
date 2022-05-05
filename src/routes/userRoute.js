@@ -1,9 +1,9 @@
 import express from "express";
-import UserAuth from "../controllers/user";
-import UserCard from "../controllers/card";
-import UserEntry from "../controllers/entries";
-import Validation from "../middlewares/validations";
-import checkLogin from "../middlewares/checkLogin";
+import UserAuth from "../controllers/user.js";
+import UserCard from "../controllers/card.js";
+import UserEntry from "../controllers/entries.js";
+import Validation from "../middlewares/validations.js";
+import checkLogin from "../middlewares/checkLogin.js";
 
 const usersRouter = express.Router();
 usersRouter.post("/signup", Validation.userValidation, UserAuth.signup);

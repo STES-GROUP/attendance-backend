@@ -1,6 +1,6 @@
 import DataTypes from "sequelize";
-import sequel from "../database/database";
-import User from "../models/User";
+import sequel from "../database/database.js";
+import User from "../models/User.js";
 
 const Access = sequel.sequelize.define(
   "access",

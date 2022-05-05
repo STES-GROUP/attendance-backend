@@ -1,4 +1,4 @@
-import Card from "../models/Card";
+import Card from "../models/Card.js";
 import { config } from "dotenv";
 import { v4 as uuidv4 } from "uuid";
 

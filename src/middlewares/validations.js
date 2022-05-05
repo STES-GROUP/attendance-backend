@@ -66,8 +66,90 @@ export default {
           });
           return errors;
         }),
-
-      phone_number: Joi.string().alphanum().min(3).max(30).required(),
+        postName : Joi.string()
+        .min(2)
+        .required()
+        .regex(/^[A-Za-z]*$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            // eslint-disable-next-line default-case
+            switch (err.type) {
+              case "string.regex.base":
+                err.message =
+                  "Last name cannot contain number or special characters";
+                break;
+              case "any.required":
+                err.message = "Last name is required";
+                break;
+              case "string.min":
+                err.message = "Last name must be at least 2 characters long";
+                break;
+              case "string.base":
+                err.message = "Last name must be a string";
+                break;
+            }
+          });
+          return errors;
+        }),
+        gender : Joi.string().alphanum().min(3).max(30).required(),
+        birthDate: Joi.date()
+        // .format("DD/MM/YYYY") // set desired date format here
+        .raw().required(),
+        birthPlace : Joi.string().alphanum().min(3).max(30).required(),
+        mother: Joi.string()
+        .min(2)
+        .required()
+        .regex(/^[A-Za-z]*$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            // eslint-disable-next-line default-case
+            switch (err.type) {
+              case "string.regex.base":
+                err.message =
+                  "Last name cannot contain number or special characters";
+                break;
+              case "any.required":
+                err.message = "Last name is required";
+                break;
+              case "string.min":
+                err.message = "Last name must be at least 2 characters long";
+                break;
+              case "string.base":
+                err.message = "Last name must be a string";
+                break;
+            }
+          });
+          return errors;
+        }),
+        father: Joi.string()
+        .min(2)
+        .required()
+        .regex(/^[A-Za-z]*$/)
+        .error((errors) => {
+          errors.forEach((err) => {
+            // eslint-disable-next-line default-case
+            switch (err.type) {
+              case "string.regex.base":
+                err.message =
+                  "Last name cannot contain number or special characters";
+                break;
+              case "any.required":
+                err.message = "Last name is required";
+                break;
+              case "string.min":
+                err.message = "Last name must be at least 2 characters long";
+                break;
+              case "string.base":
+                err.message = "Last name must be a string";
+                break;
+            }
+          });
+          return errors;
+        }),
+        faculty : Joi.string().alphanum().min(3).max(30).required(),
+        option : Joi.string().alphanum().min(3).max(30).required(),
+        promotion : Joi.string().alphanum().min(3).max(30).required(),
+        phone_number: Joi.string().alphanum().min(3).max(30).required(),
 
       department: Joi.string().alphanum().min(3).max(30).required(),
 

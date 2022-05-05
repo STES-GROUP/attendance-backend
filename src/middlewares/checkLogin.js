@@ -1,5 +1,5 @@
-import { decode } from "../helpers/auth";
-import User from "../models/User";
+import { decode } from "../helpers/auth.js";
+import User from "../models/User.js";
 
 const checkLogin = async (req, res, next) => {
   const Token = req.headers["x-access-token"];

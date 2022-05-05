@@ -2,10 +2,10 @@ import express from "express";
 import passport from "passport";
 import session from "express-session";
 import morgan from "morgan";
-import db from "./models/Class";
+import db from "./models/Entry.js";
 import bodyParser from "body-parser";
 import { config } from "dotenv";
-import router from "./routes/userRoute";
+import router from "./routes/userRoute.js";
 import cors from "cors";
 
 config();

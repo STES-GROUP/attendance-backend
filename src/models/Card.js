@@ -1,6 +1,6 @@
 import DataTypes from "sequelize";
-import sequel from "../database/database";
-import Entry from "./Entry";
+import sequel from "../database/database.js";
+// import Entry from "./Entry";
 
 const Card = sequel.sequelize.define(
   "card",
@@ -29,9 +29,9 @@ const Card = sequel.sequelize.define(
   }
 );
 
-Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });
+// Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });
 
-Card.sync();
+Card.sync( );
 console.log("The table for the Card model was just (re)created!");
 
 export default Card;

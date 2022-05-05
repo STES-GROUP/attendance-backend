@@ -1,7 +1,6 @@
 import DataTypes from "sequelize";
-import sequel from "../database/database";
-import Class from "./Class";
-
+import sequel from "../database/database.js";
+import Class from "./Class.js";
 const User = sequel.sequelize.define(
   "user",
   {
@@ -22,6 +21,42 @@ const User = sequel.sequelize.define(
       type: DataTypes.STRING,
     },
     lastName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    postName: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    gender: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    birthDate: {
+      allowNull: true,
+      type: DataTypes.DATE,
+    },
+    birthPlace: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    mother: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    father: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    faculty: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    option: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
+    promotion: {
       allowNull: true,
       type: DataTypes.STRING,
     },
@@ -59,7 +94,8 @@ const User = sequel.sequelize.define(
     timestamps: true,
   }
 );
-
+// User.belongsTo(Class, { foreignKey: "studentId", onDelete: "CASCADE" });
+// User.hasMany(Class,{  onUpdate: 'CASCADE' })
 User.sync();
 console.log("The table for the User model was just (re)created!");
 

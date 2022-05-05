@@ -1,14 +1,15 @@
 import DataTypes from "sequelize";
-import sequel from "../database/database";
-import User from "./User";
+import sequel from "../database/database.js";
+import User from "./User.js";
+import Entry from "./Entry.js";
 
 const Class = sequel.sequelize.define(
   "class",
   {
     id: {
       allowNull: false,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      
       primaryKey: true,
     },
     ClassIdentifier: {
@@ -26,11 +27,13 @@ const Class = sequel.sequelize.define(
   },
   {
     timestamps: true,
-  }
+  } 
 );
 
-Class.belongsTo(User, { foreignKey: "studentId", onDelete: "CASCADE" });
+// Class.hasMany(User,{  onUpdate: 'CASCADE', onDelete: "CASCADE" })
+// Class.belongsTo(User, { foreignKey: "id", onDelete: "CASCADE" }); {force:true}
 
+ 
 Class.sync();
 console.log("The table for the Class model was just (re)created!");
 
