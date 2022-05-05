@@ -7,8 +7,8 @@ const Access = sequel.sequelize.define(
   {
     id: {
       allowNull: false,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      autoIncrement:true,
       primaryKey: true,
     },
 
@@ -38,8 +38,8 @@ const Access = sequel.sequelize.define(
 //     name: "allowed_view",
 //     allowNull: true,
 //   },
-// });
-Access.sync({ force: true });
+// });{ force: true }
+Access.sync();
 console.log("The table for the Access model was just (re)created!");
 
 export default Access;

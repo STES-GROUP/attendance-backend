@@ -9,7 +9,7 @@ const Class = sequel.sequelize.define(
     id: {
       allowNull: false,
       type: DataTypes.INTEGER,
-      
+      autoIncrement:true,
       primaryKey: true,
     },
     ClassIdentifier: {
@@ -30,11 +30,10 @@ const Class = sequel.sequelize.define(
   } 
 );
 
-// Class.hasMany(User,{  onUpdate: 'CASCADE', onDelete: "CASCADE" })
-// Class.belongsTo(User, { foreignKey: "id", onDelete: "CASCADE" }); {force:true}
-
+// Class.hasMany(Entry,{ foreignKey: "id",  onDelete: "CASCADE" }){force:true}
+Class.belongsTo(User, { foreignKey: "studentId", onDelete: "CASCADE" });
  
-Class.sync();
+Class.sync(); 
 console.log("The table for the Class model was just (re)created!");
 
 export default Class;

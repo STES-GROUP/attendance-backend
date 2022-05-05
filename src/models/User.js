@@ -6,8 +6,8 @@ const User = sequel.sequelize.define(
   {
     id: {
       allowNull: false,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      
+      type: DataTypes.INTEGER,
     },
     cardId: {
       type: DataTypes.STRING,
@@ -95,7 +95,7 @@ const User = sequel.sequelize.define(
   }
 );
 // User.belongsTo(Class, { foreignKey: "studentId", onDelete: "CASCADE" });
-// User.hasMany(Class,{  onUpdate: 'CASCADE' })
+// User.hasMany(Class,{  onUpdate: 'CASCADE' }){force:true}
 User.sync();
 console.log("The table for the User model was just (re)created!");
 

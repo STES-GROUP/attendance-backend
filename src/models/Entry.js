@@ -24,10 +24,10 @@ const Entry = sequel.sequelize.define(
       allowNull: true,
       type: DataTypes.STRING,
     },
-    // ClassIdentifier: {
-    //   allowNull: true,
-    //   type: DataTypes.STRING,
-    // },
+    ClassIdentifier: {
+      allowNull: true,
+      type: DataTypes.STRING,
+    },
     createdAt: {
       allowNull: true,
       type: DataTypes.DATE,
@@ -42,8 +42,8 @@ const Entry = sequel.sequelize.define(
   }
 );
 
-Entry.belongsTo(Class, { foreignKey: "id", onDelete: "CASCADE" });
-Entry.belongsTo(User, { foreignKey: "id", onDelete: "CASCADE" });
+// Entry.belongsTo(Class, { foreignKey: "id", onDelete: "CASCADE" });
+// Entry.belongsTo(User, { foreignKey: "studentId", onDelete: "CASCADE" });
 Entry.sync();
 console.log("The table for the Entry model was just (re)created!");
 

@@ -7,8 +7,8 @@ const Card = sequel.sequelize.define(
   {
     id: {
       allowNull: false,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      
+      type: DataTypes.INTEGER,
     },
     cardId: {
       type: DataTypes.STRING,
@@ -29,9 +29,9 @@ const Card = sequel.sequelize.define(
   }
 );
 
-// Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });
+// Card.belongsTo(Entry, { foreignKey: "cardId", onDelete: "CASCADE" });{force:true}
 
-Card.sync( );
+Card.sync();
 console.log("The table for the Card model was just (re)created!");
 
 export default Card;

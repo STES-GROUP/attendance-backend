@@ -11,6 +11,7 @@ export default {
 
   userValidation(req, res, next) {
     const userSchema = Joi.object({
+      id: Joi.number().required(),
       cardId: Joi.string().alphanum().min(3).max(30).required(),
 
       studentId: Joi.number().required(),

@@ -1,6 +1,6 @@
 import Card from "../models/Card.js";
 import { config } from "dotenv";
-import { v4 as uuidv4 } from "uuid";
+
 
 config();
 
@@ -18,7 +18,7 @@ class Cards {
 
   static async createCard(req, res) {
     try {
-      const { cardId } = req.body;
+      const {id, cardId } = req.body;
       const cardExist = await Card.findOne({ where: { cardId } });
 
       if (cardExist) {
@@ -28,7 +28,7 @@ class Cards {
         });
       }
       const newCard = await Card.create({
-        id: uuidv4(),
+        id,
         cardId,
       });
       return res.status(201).json({

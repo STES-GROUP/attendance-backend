@@ -4,7 +4,7 @@ import User from "../models/User.js";
 import { Sequelize } from "sequelize";
 import Access from "../models/Access.js";
 import Class from "../models/Class.js";
-import { v4 as uuidv4 } from "uuid";
+
 
 /**
  * @description User entry
@@ -20,7 +20,7 @@ class EntryController {
 
   static async createClass(req, res) {
     try {
-      const { studentId, ClassIdentifier } = req.body;
+      const {id, studentId, ClassIdentifier } = req.body;
       // const classExist = await Class.findOne({ where: { ClassIdentifier } });
       // if (classExist) {
       //   return res.status(403).json({
@@ -29,7 +29,7 @@ class EntryController {
       //   });
       // }
       const newClass = await Class.create({
-        id: uuidv4(),
+        id,
         studentId,
         ClassIdentifier,
       });
@@ -88,13 +88,12 @@ class EntryController {
             where: {
               cardId,
             },
-        
+           
           }).then((readUser) => {
             if (readUser) {
               const selectedUser = {
                 cardId: readUser.cardId,
                 studentId: readUser.studentId,
-               
               };
 
               Entry.create(selectedUser);

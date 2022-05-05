@@ -2,7 +2,7 @@ import { config } from "dotenv";
 import bcrypt from "bcrypt";
 
 // import generator from "generate-password";
-import { v4 as uuidv4 } from "uuid";
+
 import User from "../models/User.js";
 import { encode } from "../helpers/auth.js";
 config();
@@ -22,6 +22,7 @@ class Authentication {
   static async signup(req, res) {
     try {
       const {
+        id,
         cardId,
         studentId,
         firstName,
@@ -55,7 +56,7 @@ class Authentication {
       // console.log(password);
       const hash = await bcrypt.hash(password, 8);
       const userData = await User.create({
-        id: uuidv4(),
+        id,
         cardId,
         studentId,
         firstName,
