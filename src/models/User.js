@@ -15,7 +15,7 @@ const User = sequel.sequelize.define(
     },
     studentId: {
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     firstName: {
       allowNull: true,
@@ -97,7 +97,7 @@ const User = sequel.sequelize.define(
 );
 // User.belongsTo(Class, { foreignKey: "studentId", onDelete: "CASCADE" });
 // User.hasMany(Class,{  onUpdate: 'CASCADE' }){force:true}
-User.sync();
+User.sync({force:true});
 console.log("The table for the User model was just (re)created!");
 
 export default User;

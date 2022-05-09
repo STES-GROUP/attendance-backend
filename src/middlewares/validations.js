@@ -13,7 +13,7 @@ export default {
     const userSchema = Joi.object({
       id: Joi.number().required(),
       cardId: Joi.string().alphanum().min(3).max(30).allow(null).allow(''),
-      studentId: Joi.number().required(),
+      studentId: Joi.string().required(),
 
       firstName: Joi.string()
         .min(2)
