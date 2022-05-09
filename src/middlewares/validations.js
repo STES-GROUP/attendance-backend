@@ -12,8 +12,7 @@ export default {
   userValidation(req, res, next) {
     const userSchema = Joi.object({
       id: Joi.number().required(),
-      cardId: Joi.string().alphanum().min(3).max(30).required(),
-
+      cardId: Joi.string().alphanum().min(3).max(30).allow(null).allow(''),
       studentId: Joi.number().required(),
 
       firstName: Joi.string()
@@ -147,12 +146,12 @@ export default {
           });
           return errors;
         }),
-        faculty : Joi.string().alphanum().min(3).max(30).required(),
-        option : Joi.string().alphanum().min(3).max(30).required(),
-        promotion : Joi.string().alphanum().min(3).max(30).required(),
+        faculty : Joi.string().min(3).max(30).required(),
+        option : Joi.string().min(3).max(30).required(),
+        promotion : Joi.string().min(3).max(30).required(),
         phone_number: Joi.string().alphanum().min(3).max(30).required(),
 
-      department: Joi.string().alphanum().min(3).max(30).required(),
+      department: Joi.string().min(3).max(30).required(),
 
       email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })

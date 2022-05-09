@@ -10,6 +10,7 @@ const User = sequel.sequelize.define(
       type: DataTypes.INTEGER,
     },
     cardId: {
+      allowNull: true,
       type: DataTypes.STRING,
     },
     studentId: {
