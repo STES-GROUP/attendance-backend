@@ -126,6 +126,148 @@ class Authentication {
       throw err;
     }
   }
+
+    /**
+   * @description get all Users
+   * @param {object} req
+   * @param {object} res
+   * @return {object} return object with all entries
+   */
+
+     static async getAllUsers(req, res) {
+      try {
+       
+        const AllUsers = await User.findAll();
+        if(!AllUsers){
+          return res.status(404).json({
+            status: 404,
+            error: "Users not found"
+          })
+        }
+        return res.status(200).json({
+          status: 200,
+          message: 'all users were retrieved successful',
+          data: AllUsers
+        });
+      } catch (err) {
+        throw err;
+      }
+    }
+
+    
+  /**
+   * @description admin modify user
+   * @param {object} req
+   * @param {object} res
+   *@returns {object} message
+   */
+
+   
+  static async update(req, res) {
+    try {
+      const { body: {  
+        cardId,
+        studentId,
+        firstName,
+        lastName,
+        phone_number,
+        department,
+        email,
+        password,
+        role,
+        postName,
+        gender,
+        birthDate,
+        birthPlace,
+        mother,
+        father,
+        faculty,
+        option,
+        promotion }, query: { id } } = req;
+      
+      const found = await User.findOne({
+        where: {
+          id,
+        }
+      });
+      if (found) {
+        await User.update({
+          cardId,
+          studentId,
+          firstName,
+          lastName,
+          phone_number,
+          department,
+          email,
+          password,
+          role,
+          postName,
+          gender,
+          birthDate,
+          birthPlace,
+          mother,
+          father,
+          faculty,
+          option,
+          promotion
+        }, {
+          where: {
+            id
+          },
+          returning: true,
+          plain: true
+        });
+        return res.status(200).json({
+          status: 200,
+          message: 'User was update successfully'
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        error: 'User not found'
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  
+  /**
+   * @description admin delete a user
+   * @param {object} req
+   * @param {object} res
+   * @returns {object} success message
+   */
+
+  
+   static async delete(req, res) {
+    try {
+      const { query: { id } } = req;
+     
+      const found = await User.findOne({
+        where: {
+          id,
+        }
+      });
+      if (found) {
+        await User.destroy({
+          where: {
+            id
+          }
+        })
+        return res.status(200).json({
+          status: 200,
+          message: 'User have been deleted'
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        error: 'User not found '
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 export default Authentication;

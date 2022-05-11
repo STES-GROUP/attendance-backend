@@ -20,4 +20,7 @@ usersRouter.post("/access/add", UserEntry.registerAccess);
 usersRouter.get("/view-access/:view", UserEntry.accessInfo);
 usersRouter.post("/register/class", UserEntry.createClass);
 usersRouter.get("/all/class", UserEntry.allClasses);
+usersRouter.get("/all/users", UserAuth.getAllUsers);
+usersRouter.patch("/update", Validation.userValidation, UserAuth.update);
+usersRouter.delete("/delete", UserAuth.delete);
 export default usersRouter;

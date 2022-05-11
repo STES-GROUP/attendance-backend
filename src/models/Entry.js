@@ -44,7 +44,7 @@ const Entry = sequel.sequelize.define(
 
 // Entry.belongsTo(Class, { foreignKey: "id", onDelete: "CASCADE" });
 // Entry.belongsTo(User, { foreignKey: "studentId", onDelete: "CASCADE" });
-Entry.sync({force:true});
+Entry.sync();
 console.log("The table for the Entry model was just (re)created!");
 
 export default Entry;
