@@ -18,7 +18,7 @@ export default {
       firstName: Joi.string()
         .min(2)
         .required()
-        .regex(/^[A-Za-z]*$/)
+        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
         .error((errors) => {
           errors.forEach((err) => {
             // eslint-disable-next-line default-case
@@ -44,7 +44,7 @@ export default {
       lastName: Joi.string()
         .min(2)
         .required()
-        .regex(/^[A-Za-z]*$/)
+        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
         .error((errors) => {
           errors.forEach((err) => {
             // eslint-disable-next-line default-case
@@ -69,7 +69,7 @@ export default {
         postName : Joi.string()
         .min(2)
         .required()
-        .regex(/^[A-Za-z]*$/)
+        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
         .error((errors) => {
           errors.forEach((err) => {
             // eslint-disable-next-line default-case
@@ -100,7 +100,7 @@ export default {
         mother: Joi.string()
         .min(2)
         .required
-        .regex(/^[A-Za-z]*$/)
+        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
         .error((errors) => {
           errors.forEach((err) => {
             // eslint-disable-next-line default-case
@@ -125,7 +125,7 @@ export default {
         father: Joi.string()
         .min(2)
         .required
-        .regex(/^[A-Za-z]*$/)
+        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
         .error((errors) => {
           errors.forEach((err) => {
             // eslint-disable-next-line default-case
