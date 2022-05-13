@@ -40,7 +40,9 @@ class Authentication {
         father,
         faculty,
         option,
-        promotion
+        promotion,
+    codePromotion
+        
       } = req.body;
 
       const userFound = await User.findOne({ where: { email } });
@@ -74,7 +76,8 @@ class Authentication {
         father,
         faculty,
         option,
-        promotion
+        promotion,
+        codePromotion
       });
 
       return res.status(201).json({
@@ -209,7 +212,8 @@ class Authentication {
           father,
           faculty,
           option,
-          promotion
+          promotion,
+          codePromotion
         }, {
           where: {
             id

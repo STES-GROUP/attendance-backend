@@ -92,13 +92,14 @@ export default {
           return errors;
         }),
         gender : Joi.string().alphanum().min(3).max(30).required(),
-        birthDate: Joi.date()
+        birthDate: Joi.date().allow(null).allow('')
         // .format("DD/MM/YYYY") // set desired date format here
-        .raw().required(),
-        birthPlace : Joi.string().alphanum().min(3).max(30).required(),
+        .raw(),
+        birthPlace : Joi.string().alphanum().min(3).max(30).allow(null).allow(''),
+        codePromotion:  Joi.string().min(2).max(30).allow(null).allow(''),
         mother: Joi.string()
         .min(2)
-        .required()
+        .required
         .regex(/^[A-Za-z]*$/)
         .error((errors) => {
           errors.forEach((err) => {
@@ -123,7 +124,7 @@ export default {
         }),
         father: Joi.string()
         .min(2)
-        .required()
+        .required
         .regex(/^[A-Za-z]*$/)
         .error((errors) => {
           errors.forEach((err) => {
