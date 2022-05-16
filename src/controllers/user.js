@@ -157,6 +157,44 @@ class Authentication {
       }
     }
 
+
+    
+    /**
+   * @description Filter Users
+   * @param {object} req
+   * @param {object} res
+   * @return {object} return object with all entries
+   */
+
+
+     static async SearchUsers(req, res, next) {
+      try {
+       
+        const filters = req.query;
+
+        const data = await User.findAll();
+        const filteredUsers = data.filter(user => {
+          let isValid = true;
+          for (const key in filters) {
+           
+            isValid = isValid && user[key] == filters[key];
+          }
+          return isValid;
+        });
+       
+
+      return res.status(200).json(
+          {
+            data: filteredUsers
+          }
+        )
+
+      
+      } catch (err) {
+        throw err;
+      }
+    }
+
     
   /**
    * @description admin modify user
@@ -186,6 +224,7 @@ class Authentication {
         father,
         faculty,
         option,
+        codePromotion,
         promotion }, query: { id } } = req;
       
       const found = await User.findOne({

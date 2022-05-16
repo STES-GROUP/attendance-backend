@@ -16,137 +16,140 @@ export default {
       studentId: Joi.string().required(),
 
       firstName: Joi.string()
-        .min(2)
-        .required()
-        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
-        .error((errors) => {
-          errors.forEach((err) => {
-            // eslint-disable-next-line default-case
-            switch (err.type) {
-              case "string.regex.base":
-                err.message =
-                  "First name cannot contain number or special characters";
-                break;
-              case "any.required":
-                err.message = "First name is required";
-                break;
-              case "string.min":
-                err.message = "First name must be at least 2 characters long";
-                break;
-              case "string.base":
-                err.message = "First name must be a string";
-                break;
-            }
-          });
-          return errors;
-        }),
+      .min(2)
+      .required()
+      .regex(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)
+      .error((errors) => {
+        errors.forEach((err) => {
+          // eslint-disable-next-line default-case
+          switch (err.type) {
+            case 'string.regex.base':
+              err.message = 'First name cannot contain number or special characters';
+              break;
+            case 'any.required':
+              err.message = 'First name is required';
+              break;
+            case 'string.min':
+              err.message = 'First name must be at least 2 characters long';
+              break;
+            case 'string.base':
+              err.message = 'First name must be a string';
+              break;
+          }
+        });
+        return errors;
+      }),
 
-      lastName: Joi.string()
-        .min(2)
-        .required()
-        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
-        .error((errors) => {
-          errors.forEach((err) => {
-            // eslint-disable-next-line default-case
-            switch (err.type) {
-              case "string.regex.base":
-                err.message =
-                  "Last name cannot contain number or special characters";
-                break;
-              case "any.required":
-                err.message = "Last name is required";
-                break;
-              case "string.min":
-                err.message = "Last name must be at least 2 characters long";
-                break;
-              case "string.base":
-                err.message = "Last name must be a string";
-                break;
-            }
-          });
-          return errors;
-        }),
+      lastName:Joi.string()
+      .min(2)
+      .required()
+      .regex(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)
+      .error((errors) => {
+        errors.forEach((err) => {
+          // eslint-disable-next-line default-case
+          switch (err.type) {
+            case 'string.regex.base':
+              err.message = 'First name cannot contain number or special characters';
+              break;
+            case 'any.required':
+              err.message = 'First name is required';
+              break;
+            case 'string.min':
+              err.message = 'First name must be at least 2 characters long';
+              break;
+            case 'string.base':
+              err.message = 'First name must be a string';
+              break;
+          }
+        });
+        return errors;
+      }),
+
+
         postName : Joi.string()
-        .min(2)
-        .required()
-        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
-        .error((errors) => {
-          errors.forEach((err) => {
-            // eslint-disable-next-line default-case
-            switch (err.type) {
-              case "string.regex.base":
-                err.message =
-                  "Last name cannot contain number or special characters";
-                break;
-              case "any.required":
-                err.message = "Last name is required";
-                break;
-              case "string.min":
-                err.message = "Last name must be at least 2 characters long";
-                break;
-              case "string.base":
-                err.message = "Last name must be a string";
-                break;
-            }
-          });
-          return errors;
-        }),
+      .min(2)
+      .required()
+      .regex(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)
+      .error((errors) => {
+        errors.forEach((err) => {
+          // eslint-disable-next-line default-case
+          switch (err.type) {
+            case 'string.regex.base':
+              err.message = 'First name cannot contain number or special characters';
+              break;
+            case 'any.required':
+              err.message = 'First name is required';
+              break;
+            case 'string.min':
+              err.message = 'First name must be at least 2 characters long';
+              break;
+            case 'string.base':
+              err.message = 'First name must be a string';
+              break;
+          }
+        });
+        return errors;
+      }),
+
         gender : Joi.string().alphanum().min(3).max(30).required(),
         birthDate: Joi.date().allow(null).allow('')
         // .format("DD/MM/YYYY") // set desired date format here
         .raw(),
         birthPlace : Joi.string().alphanum().min(3).max(30).allow(null).allow(''),
         codePromotion:  Joi.string().min(2).max(30).allow(null).allow(''),
-        mother: Joi.string()
-        .min(2)
-        .required
-        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
-        .error((errors) => {
-          errors.forEach((err) => {
-            // eslint-disable-next-line default-case
-            switch (err.type) {
-              case "string.regex.base":
-                err.message =
-                  "Last name cannot contain number or special characters";
-                break;
-              case "any.required":
-                err.message = "Last name is required";
-                break;
-              case "string.min":
-                err.message = "Last name must be at least 2 characters long";
-                break;
-              case "string.base":
-                err.message = "Last name must be a string";
-                break;
-            }
-          });
-          return errors;
-        }),
+
+        mother:Joi.string()
+      .min(2)
+      .required()
+      .regex(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)
+      .error((errors) => {
+        errors.forEach((err) => {
+          // eslint-disable-next-line default-case
+          switch (err.type) {
+            case 'string.regex.base':
+              err.message = 'First name cannot contain number or special characters';
+              break;
+            case 'any.required':
+              err.message = 'First name is required';
+              break;
+            case 'string.min':
+              err.message = 'First name must be at least 2 characters long';
+              break;
+            case 'string.base':
+              err.message = 'First name must be a string';
+              break;
+          }
+        });
+        return errors;
+      }),
+
+
         father: Joi.string()
-        .min(2)
-        .required
-        .regex("[\u00C0-\u017Fa-zA-Z']+([- ][\u00C0-\u017Fa-zA-Z']+)*")
-        .error((errors) => {
-          errors.forEach((err) => {
-            // eslint-disable-next-line default-case
-            switch (err.type) {
-              case "string.regex.base":
-                err.message =
-                  "Last name cannot contain number or special characters";
-                break;
-              case "any.required":
-                err.message = "Last name is required";
-                break;
-              case "string.min":
-                err.message = "Last name must be at least 2 characters long";
-                break;
-              case "string.base":
-                err.message = "Last name must be a string";
-                break;
-            }
-          });
-          return errors;
-        }),
+      .min(2)
+      .required()
+      .regex(/(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)/)
+      .error((errors) => {
+        errors.forEach((err) => {
+          // eslint-disable-next-line default-case
+          switch (err.type) {
+            case 'string.regex.base':
+              err.message = 'First name cannot contain number or special characters';
+              break;
+            case 'any.required':
+              err.message = 'First name is required';
+              break;
+            case 'string.min':
+              err.message = 'First name must be at least 2 characters long';
+              break;
+            case 'string.base':
+              err.message = 'First name must be a string';
+              break;
+          }
+        });
+        return errors;
+      }),
+
+
         faculty : Joi.string().min(3).max(30).required(),
         option : Joi.string().min(3).max(30).required(),
         promotion : Joi.string().min(3).max(30).required(),
@@ -162,9 +165,9 @@ export default {
 
       password: Joi.string()
         .required()
-        .regex(
-          /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/
-        )
+        
+          .regex(/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/)
+      
         .error((errors) => {
           errors.forEach((err) => {
             switch (err.type) {

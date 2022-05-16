@@ -23,4 +23,5 @@ usersRouter.get("/all/class", UserEntry.allClasses);
 usersRouter.get("/all/users", UserAuth.getAllUsers);
 usersRouter.patch("/update", Validation.userValidation, UserAuth.update);
 usersRouter.delete("/delete", UserAuth.delete);
+usersRouter.get("/search",UserAuth.SearchUsers )
 export default usersRouter;
