@@ -158,7 +158,7 @@ export default {
       department: Joi.string().min(3).max(30).required(),
 
       email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+        .email({ minDomainSegments: 2, tlds: { allow: ["com", "net", "org"] } })
         .error(() => ({
           message: "Please provide required email",
         })),
