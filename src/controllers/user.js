@@ -208,7 +208,7 @@ class Authentication {
     try {
       const { body: {  
         cardId,
-       
+        id,
         firstName,
         lastName,
         phone_number,
@@ -235,7 +235,7 @@ class Authentication {
       if (found) {
         await User.update({
           cardId,
-        
+          id,
           firstName,
           lastName,
           phone_number,
