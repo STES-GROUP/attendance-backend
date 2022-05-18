@@ -21,7 +21,7 @@ usersRouter.get("/view-access/:view", UserEntry.accessInfo);
 usersRouter.post("/register/class", UserEntry.createClass);
 usersRouter.get("/all/class", UserEntry.allClasses);
 usersRouter.get("/all/users", UserAuth.getAllUsers);
-usersRouter.patch("/update", Validation.userValidation, UserAuth.update);
+usersRouter.patch("/update",  UserAuth.update);
 usersRouter.delete("/delete", UserAuth.delete);
 usersRouter.get("/search",UserAuth.SearchUsers )
 export default usersRouter;

@@ -208,14 +208,14 @@ class Authentication {
     try {
       const { body: {  
         cardId,
-        studentId,
+       
         firstName,
         lastName,
         phone_number,
         department,
         email,
   
-        role,
+     
         postName,
         gender,
         birthDate,
@@ -225,24 +225,24 @@ class Authentication {
         faculty,
         option,
         codePromotion,
-        promotion }, query: { id } } = req;
+        promotion }, query: { studentId } } = req;
       
       const found = await User.findOne({
         where: {
-          id,
+          studentId,
         }
       });
       if (found) {
         await User.update({
           cardId,
-          studentId,
+        
           firstName,
           lastName,
           phone_number,
           department,
           email,
          
-          role,
+         
           postName,
           gender,
           birthDate,
