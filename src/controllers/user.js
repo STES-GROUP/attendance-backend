@@ -214,7 +214,7 @@ class Authentication {
         phone_number,
         department,
         email,
-        password,
+  
         role,
         postName,
         gender,
@@ -241,7 +241,7 @@ class Authentication {
           phone_number,
           department,
           email,
-          password,
+         
           role,
           postName,
           gender,
